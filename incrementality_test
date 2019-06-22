@@ -3,4 +3,9 @@ activitydate = pd.read_csv('dcm_advertiserxxxxxxx_xxxxxxx_activity_20190616_2019
 # pd.read_csv('file name', error_bad_lines = False)   # read
 activitydate.head(5) # check if the file is imported correctly
 eventtime = activitydate.pop("Event Time") #I need 4 columns to prepare the raw_data for the incrementality test: "Event Time", "Campaign ID", "Interaction Time", "Event Type". I need to populate these columns from the original file one by one
-len(eventtime) # I need to check if the time
+len(eventtime) # I need to check if all 5 columns have the same length to make sure they are populated correctly
+newdf = pd.DataFrame([eventtime, interactiontime, campaignid, eventtype]) # concatenate them by creating a data frame pd.dataframe([variable1, variable2])
+finaldf = pd.DataFrame.transpose(newdf)
+finaldf.to_csv('final.csv',index=False)
+finaldf1 = pd.read_csv('final.csv', index_col = "Event Time")
+finaldf1.head(5) #check the final file #complete processing the first file. We'll need to concatenate all needed files together
