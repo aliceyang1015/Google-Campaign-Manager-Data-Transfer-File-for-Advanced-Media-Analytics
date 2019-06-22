@@ -1,0 +1,6 @@
+import pandas as pd # import pandas
+activitydate = pd.read_csv('dcm_advertiserxxxxxxx_xxxxxxx_activity_20190616_20190617_050745_2568857310.csv.gz', compression='gzip', header=0, sep=',', error_bad_lines = False)        
+# pd.read_csv('file name', error_bad_lines = False)   # read
+activitydate.head(5) # check if the file is imported correctly
+eventtime = activitydate.pop("Event Time") #I need 4 columns to prepare the raw_data for the incrementality test: "Event Time", "Campaign ID", "Interaction Time", "Event Type". I need to populate these columns from the original file one by one
+len(eventtime) # I need to check if the time
