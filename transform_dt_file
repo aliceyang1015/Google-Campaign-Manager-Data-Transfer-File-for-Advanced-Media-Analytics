@@ -1,0 +1,5 @@
+xxxx["Event Time"] = pd.to_datetime(xxxx['Event Time'],unit='us') # transform unix code to date
+xxxx["Interaction Time"] = pd.to_datetime(dt01['Interaction Time'],unit='us')
+#how to calculate the timelag? https://drive.google.com/file/d/1rW4hdLTzX-IQOjqWqHq87Uu_KWnsLCdT/view?usp=sharing
+y_campaign =  xxxx['Campaign ID']==21xxxxx32 #filter rows for "y_campaign" using  the boolean variable
+y_campaign_only=xxxx[x_campaign] #filter rows for "y_campaign" using  the boolean expression
